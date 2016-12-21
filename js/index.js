@@ -27,35 +27,37 @@
   var httpUrl = 'http://edge.zimage.io/';
   var httpsUrl = 'http://zimage.global.ssl.fastly.net/';
 
-  function generateUrl(options) {
-    if (typeof options.url !== 'string') {
+  function zimage(url, options) {
+    var options = options || {};
+
+    if (typeof url !== 'string') {
       throw new Error('url required');
     }
 
-    var params = ['url=' + options.url];
+    var params = ['url=' + url];
     for (var key in supported) {
       if (hasOwn.call(options, key) && options[key]) {
         params.push(supported[key] + '=' + options[key]);
       }
     }
-    var url;
+    var imageUrl;
     if (options.secure) {
-      url = httpsUrl;
+      imageUrl = httpsUrl;
     } else if (typeof window !== 'undefined') {
-      url = (window.location.href.indexOf('https://') === 0) ? httpsUrl : httpUrl;
+      imageUrl = (window.location.href.indexOf('https://') === 0) ? httpsUrl : httpUrl;
     } else {
-      url = httpUrl;
+      imageUrl = httpUrl;
     }
-    return url + '?' + params.join('&');
+    return imageUrl + '?' + params.join('&');
   }
 
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = generateUrl;
+    module.exports = zimage;
   } else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
     define('zimage', [], function () {
-      return generateUrl;
+      return zimage;
     });
   } else {
-    window.zimage = generateUrl;
+    window.zimage = zimage;
   }
 }());

@@ -5,12 +5,11 @@ var zimage = require('../');
 
 describe('zimage', function () {
   it('generates all basic params', function () {
-    assert.equal(zimage({
-      url: 'http://example.com/image.jpg',
+    assert.equal(zimage('http://example.com/image.jpg', {
       width: 200
     }), 'http://edge.zimage.io/?url=http://example.com/image.jpg&w=200');
 
-    assert.equal(zimage({
+    assert.equal(zimage('http://example.com/image.jpg', {
       anchor: 'top',
       blur: 3,
       height: 300,
@@ -19,7 +18,6 @@ describe('zimage', function () {
       format: 'webp',
       quality: 80,
       rotate: '45',
-      url: 'http://example.com/image.jpg',
       width: 200
     }), 'http://edge.zimage.io/?url=http://example.com/image.jpg&anchor=top&blur=3&h=300&interp=bicubic&f=x&format=webp&quality=80&r=45&w=200');
   });
@@ -29,10 +27,9 @@ describe('zimage', function () {
   });
 
   it('supports ssl', function () {
-    assert.equal(zimage({
-      url: 'http://example.com/image.jpg',
-      width: 200,
-      secure: true
+    assert.equal(zimage('http://example.com/image.jpg', {
+      secure: true,
+      width: 200
     }), 'http://zimage.global.ssl.fastly.net/?url=http://example.com/image.jpg&w=200');
   });
 });
