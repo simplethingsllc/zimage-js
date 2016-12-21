@@ -1,6 +1,6 @@
 {
   "name": "zimage",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Client library for producing Zimage URIs",
   "license": "MIT",
   "author": "David Byttow",
