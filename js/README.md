@@ -16,5 +16,5 @@ const url = zimage('https://example.com/image.jpg', {
 
 console.log(url);
 
-// http://zimage.global.ssl.fastly.net/?url=http://example.com/image.jpg&w=200&blur=3
+// Outputs: http://zimage.global.ssl.fastly.net/?url=http://example.com/image.jpg&w=200&blur=3
 ```
