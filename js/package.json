@@ -1,0 +1,26 @@
+{
+  "name": "zimage",
+  "version": "0.1.0",
+  "description": "Client library for producing Zimage URIs",
+  "license": "MIT",
+  "author": "David Byttow",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simplethingsllc/zimage-lib.git"
+  },
+  "keywords": [
+    "css",
+    "images",
+    "react",
+    "util",
+    "utility",
+    "zimage"
+  ],
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha tests/*.js"
+  }
+}
