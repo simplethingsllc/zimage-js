@@ -34,9 +34,11 @@
       throw new Error('url required');
     }
 
-    // Drop the hash fragment so it doesn't get encoded and break caching
+    // Move the hash fragment to the end of the final URL
     var hashIndex = url.indexOf('#');
+    var hashFragment = '';
     if (hashIndex > 0) {
+      hashFragment = url.substring(hashIndex);
       url = url.substring(0, hashIndex);
     }
 
@@ -54,7 +56,7 @@
     } else {
       imageUrl = httpUrl;
     }
-    return imageUrl + '?' + params.join('&');
+    return imageUrl + '?' + params.join('&') + hashFragment;
   }
 
   if (typeof module !== 'undefined' && module.exports) {
