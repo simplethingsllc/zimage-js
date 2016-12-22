@@ -4,3 +4,6 @@ Looking for the [Javascript API](https://github.com/simplethingsllc/zimage-lib/t
 
 ### Found an issue with Zimage?
 Please file it in issues. :)
+
+
+For more information, head over to [zimage.io](https://zimage.io)
