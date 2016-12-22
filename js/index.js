@@ -34,7 +34,7 @@
       throw new Error('url required');
     }
 
-    var params = ['url=' + url];
+    var params = ['url=' + encodeURIComponent(url)];
     for (var key in supported) {
       if (hasOwn.call(options, key) && options[key]) {
         params.push(supported[key] + '=' + options[key]);
