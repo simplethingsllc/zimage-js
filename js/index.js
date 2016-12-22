@@ -34,6 +34,12 @@
       throw new Error('url required');
     }
 
+    // Drop the hash fragment so it doesn't get encoded and break caching
+    var hashIndex = url.indexOf('#');
+    if (hashIndex > 0) {
+      url = url.substring(0, hashIndex);
+    }
+
     var params = ['url=' + encodeURIComponent(url)];
     for (var key in supported) {
       if (hasOwn.call(options, key) && options[key]) {

@@ -4,7 +4,7 @@ var assert = require('assert');
 var zimage = require('../');
 
 var testUrl = 'http://example.com/image.jpg?foo=bar#hashthis';
-var encodedTestUrl = encodeURIComponent(testUrl);
+var encodedTestUrl = encodeURIComponent('http://example.com/image.jpg?foo=bar');
 
 describe('zimage', function () {
   it('generates all basic params', function () {
