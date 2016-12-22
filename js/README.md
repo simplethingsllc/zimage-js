@@ -18,3 +18,5 @@ console.log(url);
 
 // Outputs: http://zimage.global.ssl.fastly.net/?url=http://example.com/image.jpg&w=200&blur=3
 ```
+
+For more information, head over to [zimage.io](https://zimage.io)
