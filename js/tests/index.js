@@ -10,7 +10,7 @@ describe('zimage', function () {
   it('generates all basic params', function () {
     assert.equal(zimage(testUrl, {
       width: 200
-    }), 'http://edge.zimage.io/?url=' + encodedTestUrl + '&w=200#hashthis');
+    }), 'https://zimage.global.ssl.fastly.net/?url=' + encodedTestUrl + '&w=200#hashthis');
 
     assert.equal(zimage(testUrl, {
       anchor: 'top',
@@ -22,7 +22,7 @@ describe('zimage', function () {
       quality: 80,
       rotate: '45',
       width: 200
-    }), 'http://edge.zimage.io/?url=' + encodedTestUrl + '&anchor=top&blur=3&h=300&interp=bicubic&f=x&format=webp&quality=80&r=45&w=200#hashthis');
+    }), 'https://zimage.global.ssl.fastly.net/?url=' + encodedTestUrl + '&anchor=top&blur=3&h=300&interp=bicubic&f=x&format=webp&quality=80&r=45&w=200#hashthis');
   });
 
   it('requires url', function () {
@@ -32,13 +32,13 @@ describe('zimage', function () {
   it('handles query params', function () {
     assert.equal(zimage(testUrl, {
       width: 200
-    }), 'http://edge.zimage.io/?url=' + encodedTestUrl + '&w=200#hashthis');
+    }), 'https://zimage.global.ssl.fastly.net/?url=' + encodedTestUrl + '&w=200#hashthis');
   });
 
-  it('supports ssl', function () {
+  it('supports http', function () {
     assert.equal(zimage(testUrl, {
-      secure: true,
+      secure: false,
       width: 200
-    }), 'http://zimage.global.ssl.fastly.net/?url=' + encodedTestUrl + '&w=200#hashthis');
+    }), 'http://edge.zimage.io/?url=' + encodedTestUrl + '&w=200#hashthis');
   });
 });

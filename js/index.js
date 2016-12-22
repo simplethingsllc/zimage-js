@@ -25,7 +25,7 @@
   };
 
   var httpUrl = 'http://edge.zimage.io/';
-  var httpsUrl = 'http://zimage.global.ssl.fastly.net/';
+  var httpsUrl = 'https://zimage.global.ssl.fastly.net/';
 
   function zimage(url, options) {
     var options = options || {};
@@ -48,13 +48,14 @@
         params.push(supported[key] + '=' + options[key]);
       }
     }
+
     var imageUrl;
-    if (options.secure) {
-      imageUrl = httpsUrl;
+    if (hasOwn.call(options, 'secure')) {
+      imageUrl = options.secure ? httpsUrl : httpUrl; 
     } else if (typeof window !== 'undefined') {
       imageUrl = (window.location.href.indexOf('https://') === 0) ? httpsUrl : httpUrl;
     } else {
-      imageUrl = httpUrl;
+      imageUrl = httpsUrl;
     }
     return imageUrl + '?' + params.join('&') + hashFragment;
   }
